@@ -1,0 +1,6 @@
+$out_root/
+{
+  include yasmine/
+}
+
+export $out_root/yasmine/$import.target

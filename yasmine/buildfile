@@ -1,0 +1,46 @@
+./: lib{yasmine}
+
+essentials_root = $src_base/upstream/externals/essentials/source/essentials
+essentials_incl = $essentials_root/include
+hermes_root = $src_base/upstream/externals/hermes/source/hermes
+hermes_incl = $hermes_root/include
+libyasmine_root = $src_base/upstream/libyasmine
+libyasmine_incl = $libyasmine_root/include
+
+lib{essentials}: {hxx cxx}{upstream/externals/essentials/source/essentials/**}
+lib{hermes}: {hxx cxx}{upstream/externals/hermes/source/hermes/**} lib{essentials}
+
+yasmine_intf_libs = # Interface dependencies.
+yasmine_impl_libs = # Implementation dependencies.
+import yasmine_intf_libs += lib{essentials} lib{hermes}
+lib{yasmine}: {hxx cxx}{upstream/libyasmine/**} $yasmine_impl_libs $yasmine_intf_libs
+
+# Build options.
+#
+cxx.poptions =+ "-I$out_root" "-I$src_root" "-I$essentials_incl" "-I$hermes_incl" "-I$libyasmine_incl" "-I$libyasmine_root/include_impl"
+
+obja{*}: cxx.poptions += -DYASMINE_STATIC_BUILD
+objs{*}: cxx.poptions += -DYASMINE_SHARED_BUILD
+
+# Export options.
+#
+lib{yasmine}:
+{
+  cxx.export.poptions = "-I$out_root" "-I$src_root" "-I$essentials_incl" "-I$hermes_incl" "-I$libyasmine_incl"
+  cxx.export.libs = $yasmine_intf_libs
+}
+
+liba{yasmine}: cxx.export.poptions += -DYASMINE_STATIC
+libs{yasmine}: cxx.export.poptions += -DYASMINE_SHARED
+
+# Install into the yasmine/ subdirectory of, say, /usr/include/
+# recreating subdirectories.
+#
+#upstream/libyasmine/
+#{
+#  {hxx}{include/*}:
+#  {
+#    install         = include/yasmine/
+#    install.subdirs = true
+#  }
+#}

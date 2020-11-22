@@ -1,0 +1,3 @@
+# yasmine
+
+C++ library

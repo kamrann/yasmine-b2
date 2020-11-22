@@ -1,0 +1,13 @@
+: 1
+name: yasmine
+version: 1.5.3-a.1
+upstream-version: 1.5.3
+summary: yasmine - the C++ UML state machine library
+license: other: proprietary ; Not free/open source.
+description-file: README.md
+url: https://github.com/SeadexGmbH/yasmine
+package-url: https://github.com/kamrann/yasmine-b2
+email: cjangus@gmail.com
+
+depends: * build2 >= 0.13.0
+depends: * bpkg >= 0.13.0
