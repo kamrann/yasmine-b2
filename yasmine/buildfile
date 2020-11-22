@@ -36,11 +36,11 @@ libs{yasmine}: cxx.export.poptions += -DYASMINE_SHARED
 # Install into the yasmine/ subdirectory of, say, /usr/include/
 # recreating subdirectories.
 #
-#upstream/libyasmine/
-#{
-#  {hxx}{include/*}:
-#  {
-#    install         = include/yasmine/
-#    install.subdirs = true
-#  }
-#}
+upstream/libyasmine/
+{
+  {hxx}{include/*}:
+  {
+    install         = include/yasmine/
+    install.subdirs = true
+  }
+}
