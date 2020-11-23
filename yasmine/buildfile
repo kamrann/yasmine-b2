@@ -54,6 +54,11 @@ upstream/externals/hermes/source/hermes/include/
   }
 }
 
+upstream/libyasmine/include_impl/
+{
+  {hxx}{*}: install = false
+}
+
 upstream/libyasmine/include/
 {
   {hxx}{*}:
