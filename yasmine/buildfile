@@ -36,9 +36,27 @@ libs{yasmine}: cxx.export.poptions += -DYASMINE_SHARED
 # Install into the yasmine/ subdirectory of, say, /usr/include/
 # recreating subdirectories.
 #
-upstream/libyasmine/
+upstream/externals/essentials/source/essentials/include
 {
-  {hxx}{include/*}:
+  {hxx}{*}:
+  {
+    install         = include/
+    install.subdirs = true
+  }
+}
+
+upstream/externals/hermes/source/hermes/include/
+{
+  {hxx}{*}:
+  {
+    install         = include/
+    install.subdirs = true
+  }
+}
+
+upstream/libyasmine/include/
+{
+  {hxx}{*}:
   {
     install         = include/yasmine/
     install.subdirs = true
