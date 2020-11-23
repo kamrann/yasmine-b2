@@ -1,6 +1,6 @@
 : 1
 name: yasmine
-version: 1.5.3-a.3
+version: 1.5.3-a.4
 upstream-version: 1.5.3
 summary: yasmine - the C++ UML state machine library
 license: other: proprietary ; Not free/open source.
