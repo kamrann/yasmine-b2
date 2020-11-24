@@ -17,7 +17,7 @@ lib{yasmine}: {hxx cxx}{upstream/libyasmine/**} $yasmine_impl_libs $yasmine_intf
 
 # Build options.
 #
-cxx.poptions =+ "-I$out_root" "-I$src_root" "-I$essentials_incl" "-I$hermes_incl" "-I$libyasmine_incl" "-I$libyasmine_root/include_impl"
+cxx.poptions =+ "-I$essentials_incl" "-I$hermes_incl" "-I$libyasmine_incl" "-I$libyasmine_root/include_impl"
 
 obja{*}: cxx.poptions += -DYASMINE_STATIC_BUILD
 objs{*}: cxx.poptions += -DYASMINE_SHARED_BUILD
@@ -26,7 +26,7 @@ objs{*}: cxx.poptions += -DYASMINE_SHARED_BUILD
 #
 lib{yasmine}:
 {
-  cxx.export.poptions = "-I$out_root" "-I$src_root" "-I$essentials_incl" "-I$hermes_incl" "-I$libyasmine_incl"
+  cxx.export.poptions = "-I$out_base" "-I$src_base" "-I$essentials_incl" "-I$hermes_incl" "-I$libyasmine_incl"
   cxx.export.libs = $yasmine_intf_libs
 }
 
