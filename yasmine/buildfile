@@ -1,5 +1,3 @@
-./: lib{yasmine}
-
 essentials_root = $src_base/upstream/externals/essentials/source/essentials
 essentials_incl = $essentials_root/include
 hermes_root = $src_base/upstream/externals/hermes/source/hermes
@@ -14,6 +12,8 @@ yasmine_intf_libs = # Interface dependencies.
 yasmine_impl_libs = # Implementation dependencies.
 import yasmine_intf_libs += lib{essentials} lib{hermes}
 lib{yasmine}: {hxx cxx}{upstream/libyasmine/**} $yasmine_impl_libs $yasmine_intf_libs
+
+./: lib{yasmine}
 
 # Build options.
 #
